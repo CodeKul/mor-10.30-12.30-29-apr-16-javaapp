@@ -7,6 +7,7 @@ package com.codekul.javaapp;
 
 import com.codekul.javaapp.exceptionhandling.ExceptionStater;
 import com.codekul.javaapp.filehandling.FileStarter;
+import com.codekul.javaapp.threading.ThreadingStarter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,11 +24,11 @@ public class Main {
         try {
             fileStarter();
         } catch (IOException ex) {
-            ex.printStackTrace();
-        } 
-        catch(ClassNotFoundException e){
-            e.printStackTrace();
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     public static void exceptionStarter() throws Exception{
@@ -56,5 +57,14 @@ public class Main {
         
         starter.writeObjectUsingObjectOutputStream();
         starter.readObjectUsingObjectInputStream();
+        
+        starter.readUsingReader();
+    }
+    
+    public static void threadStarter() throws InterruptedException{
+        
+        ThreadingStarter starter = new ThreadingStarter();
+        starter.createThreadByExtendingThread();
+        starter.creatingThreadByImplementingRunnable();
     }
 }

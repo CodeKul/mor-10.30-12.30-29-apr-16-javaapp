@@ -5,11 +5,13 @@
  */
 package com.codekul.javaapp.filehandling;
 
+import java.io.Serializable;
+
 /**
  *
  * @author melayer
  */
-public class FileCar /*extends Object -> every class is subclass of Object */ {
+public class FileCar /*extends Object -> every class is subclass of Object */ implements Serializable{
     
     private String name;
     private int type;
